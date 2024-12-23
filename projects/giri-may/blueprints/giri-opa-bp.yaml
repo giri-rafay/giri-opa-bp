@@ -4,6 +4,24 @@ metadata:
   name: giri-opa-bp
   project: giri-may
 spec:
+  base:
+    name: default-aks
+    version: 2.12.0
+  defaultAddons:
+    enableIngress: true
+    enableMonitoring: true
+    monitoring:
+      gpuOperator:
+        enabled: true
+      metricsServer:
+        customizationEnabled: true
+      prometheusAdapter:
+        customizationEnabled: true
   driftWebhook:
     enabled: true
+  opaPolicy:
+    profile:
+      name: default
+      version: latest
   type: custom
+  version: v1
